@@ -1,4 +1,4 @@
-package io.github.oliviercailloux.javaee_jpa_inject_servlets.utils;
+package io.github.oliviercailloux.javaee_jpa_resource_local_servlets.utils;
 
 import static java.util.Objects.requireNonNull;
 

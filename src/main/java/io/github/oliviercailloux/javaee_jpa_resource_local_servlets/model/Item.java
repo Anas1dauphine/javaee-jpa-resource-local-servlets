@@ -1,4 +1,4 @@
-package io.github.oliviercailloux.javaee_jpa_inject_servlets.model;
+package io.github.oliviercailloux.javaee_jpa_resource_local_servlets.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

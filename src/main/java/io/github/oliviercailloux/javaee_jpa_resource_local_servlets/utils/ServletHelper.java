@@ -1,4 +1,4 @@
-package io.github.oliviercailloux.javaee_jpa_inject_servlets.utils;
+package io.github.oliviercailloux.javaee_jpa_resource_local_servlets.utils;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -11,7 +11,7 @@ import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
 import javax.ws.rs.core.MediaType;
 
-import io.github.oliviercailloux.javaee_jpa_inject_servlets.servlets.GetItemsServlet;
+import io.github.oliviercailloux.javaee_jpa_resource_local_servlets.servlets.GetItemsServlet;
 
 @RequestScoped
 public class ServletHelper {

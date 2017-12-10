@@ -1,4 +1,4 @@
-package io.github.oliviercailloux.javaee_jpa_inject_servlets.servlets;
+package io.github.oliviercailloux.javaee_jpa_resource_local_servlets.servlets;
 
 import java.io.IOException;
 import java.util.List;
@@ -7,6 +7,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
+import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.servlet.ServletException;
 import javax.servlet.ServletOutputStream;
@@ -15,9 +16,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import io.github.oliviercailloux.javaee_jpa_inject_servlets.model.Item;
-import io.github.oliviercailloux.javaee_jpa_inject_servlets.utils.QueryHelper;
-import io.github.oliviercailloux.javaee_jpa_inject_servlets.utils.ServletHelper;
+import io.github.oliviercailloux.javaee_jpa_resource_local_servlets.model.Item;
+import io.github.oliviercailloux.javaee_jpa_resource_local_servlets.utils.QueryHelper;
+import io.github.oliviercailloux.javaee_jpa_resource_local_servlets.utils.ServletHelper;
 
 @WebServlet("/getItemsServlet")
 public class GetItemsServlet extends HttpServlet {
@@ -39,7 +40,9 @@ public class GetItemsServlet extends HttpServlet {
 		final CriteriaQuery<Item> selectAll = queryHelper.selectAll(Item.class);
 		final EntityTransaction transaction = em.getTransaction();
 		transaction.begin();
-		final List<Item> allItems = em.createQuery(selectAll).getResultList();
+//		final TypedQuery<Item> query = em.createQuery("SELECT i FROM Item i", Item.class);
+		final TypedQuery<Item> query = em.createQuery(selectAll);
+		final List<Item> allItems = query.getResultList();
 		transaction.commit();
 
 		for (Item item : allItems) {
