@@ -1,0 +1,4 @@
+= JavaEE-JPA-resource-local-Servlets
+
+A minimalistic sample about Java EE technologies: JPA (used with a resource-local entity manager) and a simple servlet.
+
