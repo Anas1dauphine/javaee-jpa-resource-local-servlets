@@ -5,7 +5,7 @@
 	<persistence-unit name="JavaEE-JPA-resource-local-Servlets"
 		transaction-type="RESOURCE_LOCAL">
 		<non-jta-data-source>java:comp/DefaultDataSource</non-jta-data-source>
-		<exclude-unlisted-classes>false</exclude-unlisted-classes>
+		<class>io.github.oliviercailloux.javaee_jpa_resource_local_servlets.model.Item</class>
 		<properties>
 			<property name="javax.persistence.schema-generation.database.action"
 				value="drop-and-create" />
@@ -13,6 +13,8 @@
 			<property name="eclipselink.logging.logger" value="JavaLogger" />
 			<property name="eclipselink.logging.level.sql" value="FINE" />
 			<property name="eclipselink.logging.parameters" value="true" />
+			<property name="hibernate.show_sql" value="true" />
+			<property name="hibernate.format_sql" value="true" />
 		</properties>
 	</persistence-unit>
 </persistence>
