@@ -20,6 +20,7 @@ import io.github.oliviercailloux.javaee_jpa_resource_local_servlets.model.Item;
 import io.github.oliviercailloux.javaee_jpa_resource_local_servlets.utils.QueryHelper;
 import io.github.oliviercailloux.javaee_jpa_resource_local_servlets.utils.ServletHelper;
 
+@SuppressWarnings("serial")
 @WebServlet("/getItemsServlet")
 public class GetItemsServlet extends HttpServlet {
 	@Override
@@ -37,10 +38,10 @@ public class GetItemsServlet extends HttpServlet {
 		final QueryHelper queryHelper = new QueryHelper();
 		queryHelper.setEmFactory(emFactory);
 
-		final CriteriaQuery<Item> selectAll = queryHelper.selectAll(Item.class);
 		final EntityTransaction transaction = em.getTransaction();
 		transaction.begin();
 //		final TypedQuery<Item> query = em.createQuery("SELECT i FROM Item i", Item.class);
+		final CriteriaQuery<Item> selectAll = queryHelper.selectAll(Item.class);
 		final TypedQuery<Item> query = em.createQuery(selectAll);
 		final List<Item> allItems = query.getResultList();
 		transaction.commit();
